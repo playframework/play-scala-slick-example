@@ -30,7 +30,7 @@ class PersonController @Inject() (repo: PersonRepository, val messagesApi: Messa
   /**
    * The index action.
    */
-  def index = Action {
+  def index = Action { implicit request =>
     Ok(views.html.index(personForm))
   }
 

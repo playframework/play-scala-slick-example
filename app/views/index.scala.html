@@ -1,4 +1,4 @@
-@(person: Form[CreatePersonForm])(implicit messages: Messages)
+@(person: Form[CreatePersonForm])(implicit request: RequestHeader, messages: Messages)
 
 @import helper._
 
@@ -7,7 +7,7 @@
 
 	<ul id="persons"></ul>
 
-  @form(routes.PersonController.addPerson()) {
+  @form(CSRF(routes.PersonController.addPerson())) {
 		@inputText(person("name"))
 		@inputText(person("age"))
 
